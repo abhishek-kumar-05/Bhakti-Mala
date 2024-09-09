@@ -7,7 +7,7 @@ const Navbar = () => {
       <ul id="navbar">
         <li>
           <a href="#" id="login-icon">
-            <i id="register" class="fa-solid fa-user fa-xl"></i>
+            <i id="register" className="fa-solid fa-user fa-xl"></i>
           </a>
         </li>
       </ul>
