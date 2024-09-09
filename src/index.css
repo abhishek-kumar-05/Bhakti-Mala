@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: verdana, Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+}
+body {
+  background: #e3e6f3;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
