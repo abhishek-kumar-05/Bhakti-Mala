@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const PopUpWindow = () => {
+  const [rating, setRating] = useState(0);
+
+  useEffect(() => {
+    const ratingElement = document.querySelectorAll(".star");
+    ratingElement.forEach((element, index) => {
+      if (index < rating) {
+        element.classList.add("highlight");
+      } else {
+        element.classList.remove("highlight");
+      }
+    });
+  }, [rating]);
+
   return (
     <div className="popup" id="popUpWindow">
       <div className="popup-content">
@@ -43,23 +56,53 @@ const PopUpWindow = () => {
             <label>Rating:</label>
             <div className="rating">
               <label htmlFor="star1" title="1 stars">
-                <input type="radio" id="star1" name="rating" value="1" />
+                <input
+                  type="radio"
+                  id="star1"
+                  name="rating"
+                  value="1"
+                  onClick={(e) => setRating(parseInt(e.target.value))}
+                />
                 <span className="star">&#9733;</span>
               </label>
               <label htmlFor="star2" title="2 stars">
-                <input type="radio" id="star2" name="rating" value="2" />
+                <input
+                  type="radio"
+                  id="star2"
+                  name="rating"
+                  value="2"
+                  onClick={(e) => setRating(parseInt(e.target.value))}
+                />
                 <span className="star">&#9733;</span>
               </label>
               <label htmlFor="star3" title="3 stars">
-                <input type="radio" id="star3" name="rating" value="3" />
+                <input
+                  type="radio"
+                  id="star3"
+                  name="rating"
+                  value="3"
+                  onClick={(e) => setRating(parseInt(e.target.value))}
+                />
                 <span className="star">&#9733;</span>
               </label>
               <label htmlFor="star4" title="4 stars">
-                <input type="radio" id="star4" name="rating" value="4" />
+                <input
+                  type="radio"
+                  id="star4"
+                  name="rating"
+                  value="4"
+                  onClick={(e) => setRating(parseInt(e.target.value))}
+                />
                 <span className="star">&#9733;</span>
               </label>
               <label htmlFor="star5" title="5 star">
-                <input type="radio" id="star5" name="rating" value="5" />
+                <input
+                  type="radio"
+                  id="star5"
+                  name="rating"
+                  value="5"
+                  onClick={(e) => setRating(parseInt(e.target.value))}
+                />
                 <span className="star">&#9733;</span>
               </label>
             </div>

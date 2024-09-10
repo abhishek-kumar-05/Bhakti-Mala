@@ -98,6 +98,18 @@ input[type="email"] {
   margin: 5px 0px;
 }
 
+input[type="radio"] {
+  appearance: none;
+}
+.star {
+  margin-right: 10px;
+  color: gray;
+  font-size: 1.1rem;
+}
+.highlight {
+  color: gold;
+}
+
 #message {
   display: block;
   margin-top: 10px;
