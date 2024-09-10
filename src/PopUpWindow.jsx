@@ -4,7 +4,10 @@ const PopUpWindow = () => {
   return (
     <div className="popup" id="popUpWindow">
       <div className="popup-content">
-        <h2>Review</h2>
+        <div className="upperPart">
+          <h2>Review</h2>
+          <button className="close">&times;</button>
+        </div>
         <form id="form">
           <label htmlFor="username">Name:</label>
           <input

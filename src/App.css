@@ -61,13 +61,29 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 
+.upperPart {
+  display: flex;
+  /* justify-content: right; */
+}
+
+.upperPart h2 {
+  width: 100%;
+}
+
 #popUpWindow h2 {
   font-size: 1.4rem;
   text-align: center;
-  padding-bottom: 15px;
 }
 
-#popUpWindow label {
+.close {
+  color: #aaa;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background-color: #fefefe;
+}
+s #popUpWindow label {
   font-size: 1.2rem;
 }
 
