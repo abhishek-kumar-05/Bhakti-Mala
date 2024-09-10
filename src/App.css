@@ -83,8 +83,8 @@
   border: none;
   background-color: #fefefe;
 }
-s #popUpWindow label {
-  font-size: 1.2rem;
+#popUpWindow label {
+  font-size: 1.1rem;
 }
 
 #popUpWindow input[type="text"],
