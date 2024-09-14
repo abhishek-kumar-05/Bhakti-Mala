@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./navbar";
+import Navbar from "./component/Navbar/Navbar";
 import "./App.css";
-import PopUpWindow from "./PopUpWindow";
+import PopUpWindow from "./component/PopUpWindow/PopUpWindow";
 
 const App = () => {
   return (

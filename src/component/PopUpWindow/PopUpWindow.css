@@ -1,0 +1,103 @@
+/* popupwindow */
+
+.popup {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 1.2rem;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.upperPart {
+  display: flex;
+  /* justify-content: right; */
+}
+
+.upperPart h2 {
+  width: 100%;
+}
+
+#popUpWindow h2 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background-color: #fefefe;
+}
+#popUpWindow label {
+  font-size: 1.1rem;
+}
+
+#popUpWindow input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin: 5px 0px;
+}
+
+input[type="radio"] {
+  appearance: none;
+}
+.star {
+  margin-right: 10px;
+  color: gray;
+  font-size: 1.1rem;
+}
+.highlight {
+  color: gold;
+}
+
+#message {
+  display: block;
+  margin-top: 10px;
+}
+/* textarea */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: none;
+}
+
+#popUpWindow input[type="submit"] {
+  display: block;
+  margin: auto;
+  font-size: 1.1rem;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #3898ed;
+  color: #fff;
+  cursor: pointer;
+}
