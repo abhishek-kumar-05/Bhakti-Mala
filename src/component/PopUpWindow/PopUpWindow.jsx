@@ -3,6 +3,13 @@ import "./PopUpWindow.css";
 
 const PopUpWindow = () => {
   const [rating, setRating] = useState(0);
+  const [reviewData, setReviewData] = useState({
+    name: "",
+    telephone: "",
+    email: "",
+    rating: "",
+    message: "",
+  });
 
   useEffect(() => {
     const ratingElement = document.querySelectorAll(".star");
@@ -15,6 +22,25 @@ const PopUpWindow = () => {
     });
   }, [rating]);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setReviewData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    const ratingElement = document.querySelectorAll(".star");
+    ratingElement.forEach((element) => {
+      element.classList.remove("highlight");
+    });
+    console.log("Data was been transfered:-", reviewData)
+    ;
+  };
+
   return (
     <div className="popup" id="popUpWindow">
       <div className="popup-content">
@@ -22,7 +48,7 @@ const PopUpWindow = () => {
           <h2>Review</h2>
           <button className="close">&times;</button>
         </div>
-        <form id="form">
+        <form id="form" onSubmit={handleSubmit}>
           <label htmlFor="username">Name:</label>
           <input
             type="text"
@@ -30,6 +56,7 @@ const PopUpWindow = () => {
             name="username"
             placeholder="Enter the username"
             required
+            onChange={handleChange}
           />
           <br />
 
@@ -40,6 +67,7 @@ const PopUpWindow = () => {
             name="telephone"
             placeholder="Enter the Contact number"
             required
+            onChange={handleChange}
           />
           <br />
 
@@ -50,6 +78,7 @@ const PopUpWindow = () => {
             name="email"
             placeholder="Enter the email"
             required
+            onChange={handleChange}
           />
           <br />
 
@@ -63,6 +92,7 @@ const PopUpWindow = () => {
                   name="rating"
                   value="1"
                   onClick={(e) => setRating(parseInt(e.target.value))}
+                  onChange={handleChange}
                 />
                 <span className="star">&#9733;</span>
               </label>
@@ -73,6 +103,7 @@ const PopUpWindow = () => {
                   name="rating"
                   value="2"
                   onClick={(e) => setRating(parseInt(e.target.value))}
+                  onChange={handleChange}
                 />
                 <span className="star">&#9733;</span>
               </label>
@@ -83,6 +114,7 @@ const PopUpWindow = () => {
                   name="rating"
                   value="3"
                   onClick={(e) => setRating(parseInt(e.target.value))}
+                  onChange={handleChange}
                 />
                 <span className="star">&#9733;</span>
               </label>
@@ -93,6 +125,7 @@ const PopUpWindow = () => {
                   name="rating"
                   value="4"
                   onClick={(e) => setRating(parseInt(e.target.value))}
+                  onChange={handleChange}
                 />
                 <span className="star">&#9733;</span>
               </label>
@@ -103,6 +136,7 @@ const PopUpWindow = () => {
                   name="rating"
                   value="5"
                   onClick={(e) => setRating(parseInt(e.target.value))}
+                  onChange={handleChange}
                 />
                 <span className="star">&#9733;</span>
               </label>
@@ -114,6 +148,7 @@ const PopUpWindow = () => {
             name="message"
             placeholder="Type your message ...."
             required
+            onChange={handleChange}
           ></textarea>
           <br />
 
