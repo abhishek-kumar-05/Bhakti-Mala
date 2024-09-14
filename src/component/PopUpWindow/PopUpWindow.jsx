@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./PopUpWindow.css";
+import { handleFormData } from "../../firebase.js";
 
 const PopUpWindow = () => {
   const [rating, setRating] = useState(0);
@@ -37,8 +38,7 @@ const PopUpWindow = () => {
     ratingElement.forEach((element) => {
       element.classList.remove("highlight");
     });
-    console.log("Data was been transfered:-", reviewData)
-    ;
+    handleFormData(reviewData);
   };
 
   return (
