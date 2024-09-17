@@ -1,8 +1,4 @@
-export const handleFormData = (formData) => {
-  const { username, telephone, email, rating, message } = formData;
-  postData(username, telephone, email, rating, message);
-};
-
+// Importing firebase module for intializing the app and interacting the realtime Database
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {
   getDatabase,
@@ -11,6 +7,7 @@ import {
   push,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
+// Firebase configuration variable importing from .env file
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -21,11 +18,13 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+// initializing the app and get refer to the database
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-function postData(username, telephone, email, rating, message) {
-  const databaseRef = push(ref(database, "Review"));
+// handle the form data submisssion and sending the data to realtime database
+export const handleFormData = (username, telephone, email, rating, message) => {
+  const databaseRef = push(ref(database, "Review")); //creating new reference in "Review" node 
   const userData = {
     username: username,
     contact: telephone,
@@ -33,11 +32,14 @@ function postData(username, telephone, email, rating, message) {
     rating: rating,
     message: message,
   };
-  set(databaseRef, userData)
+  // sending data to database and returning true if it's successfull or otherwise false
+  return set(databaseRef, userData)
     .then(() => {
-      console.log("data is successfully sent");
+      console.log("Data Sent Successfully"); //log success message 
+      return true;
     })
     .catch((error) => {
-      console.error("Something went wrong :- ", error);
+      console.log("Something went wrong :- ", error); //log the error
+      return false;
     });
-}
+};

@@ -26,7 +26,6 @@
 
 .upperPart {
   display: flex;
-  /* justify-content: right; */
 }
 
 .upperPart h2 {
@@ -38,6 +37,7 @@
   text-align: center;
 }
 
+/* cross symbol styling  */
 .close {
   color: #aaa;
   text-align: center;
@@ -46,10 +46,12 @@
   border: none;
   background-color: #fefefe;
 }
+/* label styling */
 #popUpWindow label {
   font-size: 1.1rem;
 }
 
+/* input field styling */
 #popUpWindow input[type="text"],
 input[type="tel"],
 input[type="email"] {
@@ -61,18 +63,23 @@ input[type="email"] {
   margin: 5px 0px;
 }
 
+/* removing the radio button circle */
 input[type="radio"] {
   appearance: none;
 }
+
+/* styling star element */
 .star {
   margin-right: 10px;
   color: gray;
   font-size: 1.1rem;
 }
+/* adding color to star element  */
 .highlight {
   color: gold;
 }
 
+/* styling message field */
 #message {
   display: block;
   margin-top: 10px;
@@ -90,6 +97,7 @@ textarea {
   resize: none;
 }
 
+/* styling the submit button */
 #popUpWindow input[type="submit"] {
   display: block;
   margin: auto;

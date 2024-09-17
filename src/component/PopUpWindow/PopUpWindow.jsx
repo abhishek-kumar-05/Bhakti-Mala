@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./PopUpWindow.css";
 import { handleFormData } from "../../firebase.js";
+import Notify from "../Notify/Notify.jsx";
 
 const PopUpWindow = () => {
+  // State variable 'rating' initialized to 0 with updater function 'setRating'
   const [rating, setRating] = useState(0);
+
+  // State variable 'reviewData' initialized with default values for name, telephone, email, rating, and message with updater function setReviewData
   const [reviewData, setReviewData] = useState({
-    name: "",
+    username: "",
     telephone: "",
     email: "",
     rating: "",
     message: "",
   });
 
+  // State variable 'showNotify' initialized to false with updater function 'setShowNotify'
+  const [showNotify, setShowNotify] = useState(false);
+
+  // Updateing the 'highlight' class on star elements based on the 'rating' state whenever 'rating' changes
   useEffect(() => {
     const ratingElement = document.querySelectorAll(".star");
     ratingElement.forEach((element, index) => {
@@ -23,6 +31,7 @@ const PopUpWindow = () => {
     });
   }, [rating]);
 
+  // handle the input changes by updating the 'reviewData" state while keeping the previous data intact
   const handleChange = (e) => {
     const { name, value } = e.target;
     setReviewData((previousData) => ({
@@ -31,6 +40,7 @@ const PopUpWindow = () => {
     }));
   };
 
+  // Handle form submission: prevent default behavior, reset form, remove star highlights, and send review data
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -38,16 +48,41 @@ const PopUpWindow = () => {
     ratingElement.forEach((element) => {
       element.classList.remove("highlight");
     });
-    handleFormData(reviewData);
+
+    // destructuring the usefull fields from "reviewData"
+    const { username, telephone, email, rating, message } = reviewData;
+
+    // sending the form data to "handleFormData" and updating the notification if the data is sent successfully
+    handleFormData(username, telephone, email, rating, message)
+      .then((response) => {
+        if (response) {
+          setShowNotify(true); //showing Notification if the data is successfully sent
+
+          // Removing notification after 3 second
+          setTimeout(() => {
+            setShowNotify(false);
+          }, 3000);
+        } else {
+          console.error("Failed to send data"); //showing message in console if it's the data sent is unsuccessfull
+        }
+      })
+      .catch((error) => {
+        console.log("Something went wrong", error); //Showing error if something misshappen
+      });
   };
 
   return (
+    // creating the popup Window with required field
     <div className="popup" id="popUpWindow">
       <div className="popup-content">
         <div className="upperPart">
           <h2>Review</h2>
           <button className="close">&times;</button>
         </div>
+        {/* notification component  */}
+        <Notify isvisible={showNotify} />
+
+        {/* creating form with name,telephone,email,rating,message field handling input changes and form submission */}
         <form id="form" onSubmit={handleSubmit}>
           <label htmlFor="username">Name:</label>
           <input
@@ -159,4 +194,5 @@ const PopUpWindow = () => {
   );
 };
 
+// exporting PopUpComponent
 export default PopUpWindow;
