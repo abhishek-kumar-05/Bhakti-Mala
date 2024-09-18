@@ -6,8 +6,8 @@ import PopUpWindow from "./component/PopUpWindow/PopUpWindow";
 const App = () => {
   return (
     <div>
+      {/* rendering the Navbar component */}
       <Navbar />
-      <PopUpWindow/>
     </div>
   );
 };
