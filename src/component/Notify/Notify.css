@@ -1,0 +1,11 @@
+/* giving style to notification element  */
+.notify-Container {
+  background-color: rgb(2, 184, 2);
+  margin: 10px 0px;
+}
+
+.notify-Container > p {
+  text-align: center;
+  font-size: 1rem;
+  padding: 5px;
+}
