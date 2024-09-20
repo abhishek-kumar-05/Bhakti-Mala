@@ -74,7 +74,7 @@ const PopUpWindow = ({ isClicked }) => {
 
   return (
     <>
-      // creating the popup Window with required field
+      {/* creating the popup Window with required field */}
       <div className="popup" id="popUpWindow">
         <div className="popup-content">
           <div className="upperPart">
